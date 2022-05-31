@@ -97,7 +97,7 @@ img {
     border-bottom: 1px solid var(--border-header-color);
 }
 
-.flex {
+.container--flex {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,7 +113,7 @@ img {
     color: var(--accent-color);
 }
 
-.logo-dark {
+.logo--dark {
     color: var(--logo-dark-color);
 }
 
@@ -122,25 +122,26 @@ img {
     align-items: center;
 }
 
-.nav-header>.logo {
+.nav-header__logo {
     margin-right: 93px;
     padding: 24px 0;
 }
 
-.navigation {
+.nav {
     display: flex;
 }
 
-.flex>.contacts {
+.page-header__contacts {
     display: flex;
     margin-left: auto;
 }
 
-.nav-item:not(:last-child) {
+.nav__item:not(:last-child) {
     margin-right: 50px;
 }
 
-.nav-link {
+.nav__link {
+    position: relative;
     display: inline-block;
     padding-top: 32px;
     padding-bottom: 32px;
@@ -153,20 +154,16 @@ img {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-link:hover,
-.nav-link:focus {
+.nav__link:hover,
+.nav__link:focus {
     color: var(--accent-color);
 }
 
-.nav-link {
-    position: relative;
-}
-
-.page {
+.nav__link--accent {
     color: var(--accent-color);
 }
 
-.page::after {
+.nav__link--accent::after {
     content: "";
     position: absolute;
     left: 0;
@@ -178,7 +175,7 @@ img {
     border-radius: 2px;
 }
 
-.contact {
+.contact__link {
     display: flex;
     align-items: center;
     font-weight: 500;
@@ -191,22 +188,22 @@ img {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contact:hover,
-.contact:focus {
+.contact__link:hover,
+.contact__link:focus {
     color: var(--accent-color);
     fill: currentColor;
 }
 
-.page-header .contact {
+.contact__link--padding {
     padding-top: 32px;
     padding-bottom: 32px;
 }
 
-.page-header .contact-item:not(:last-child) {
+.contact__item--position:not(:last-child) {
     margin-right: 50px;
 }
 
-.contact-item svg {
+.contact__icon {
     margin-right: 10px;
     align-items: baseline;
 }
@@ -215,7 +212,7 @@ img {
 *************** Футер ******************** 
 ********************************************************************** */
 
-.logo-white {
+.logo--white {
     color: var(--white-color);
 }
 
@@ -223,7 +220,7 @@ address {
     font-style: normal;
 }
 
-.address-contact {
+.address__contact {
     display: inline-block;
     font-size: 14px;
     line-height: 1.7;
@@ -232,11 +229,16 @@ address {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.text {
+.address__contact:hover,
+.address__contact:focus {
+    color: var(--accent-color);
+}
+
+.footer--text-color {
     color: var(--white-color);
 }
 
-.socials {
+.footer__title {
     font-weight: 700;
     font-size: 14px;
     line-height: 1.14;
@@ -245,13 +247,8 @@ address {
     display: block;
 }
 
-.address-item:not(:last-child) {
+.address__item:not(:last-child) {
     margin-bottom: 9px;
-}
-
-.address-contact:hover,
-.address-contact:focus {
-    color: var(--accent-color);
 }
 
 .footer {
@@ -260,26 +257,25 @@ address {
     padding-bottom: 60px;
 }
 
-.footer .logo {
-    display: inline-block;
+.footer__logo {
     padding: 0;
     margin-bottom: 20px;
 }
 
-.footer > .container {
+.footer__container {
     display: flex;
     align-items: baseline;
 }
 
-.footer-block:not(:last-child) {
+.footer__block:not(:last-child) {
    margin-right: 70px;
 }
 
-.footer-block:last-child {
+.footer__block:last-child {
     margin-left: auto;
 }
 
-.footer .btn { 
+.footer__btn { 
     padding: 10px 0;
     padding-left: 29px;
     padding-right: 28px;
@@ -288,7 +284,7 @@ address {
     align-items: center;
 } 
 
-.footer-email {
+.footer__email {
     margin-left: 10px;
     margin: 0;
     width: 358px;
@@ -309,30 +305,29 @@ address {
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-email:not(:placeholder-shown) {
+.footer__email:not(:placeholder-shown) {
     background-color: transparent;
 }
 
-.footer-email::placeholder {
+.footer__email::placeholder {
     color: var(--adress-color);
     font-size: 16px;
     line-height: 1.25;
     letter-spacing: 0.03em;
 }
 
-.footer-email:hover,
-.footer-email:focus {
+.footer__email:hover,
+.footer__email:focus {
     border-color: var(--accent-color);
     outline-style: var(--accent-color);
 }
 
 .subscription {
     display: flex;
-   
 }
 
-.btn .social-icon {
-    margin-left: 10px;
+.footer__icon {
+    fill: var(--white-color);
 }
 
 /* ********************************************************************* 
@@ -356,7 +351,7 @@ address {
     text-align: center;
 }
 
-.hero-title {
+.hero__title {
     font-weight: 900;
     font-size: 44px;
     line-height: 1.4;
@@ -390,19 +385,16 @@ address {
     background-color: var(--second-accent-color);
 }
 
-.title,
-.feature-title {
+.title {
     font-weight: 700;
     font-size: 36px;
     line-height: 1.2;
     color: var(--titlt-color);
     margin: 0;
-}
-
-.title {
     margin-bottom: 50px;
     text-align: center;
 }
+
 
 /* --------------- Наши преимущества ------------ */
 
@@ -412,7 +404,7 @@ address {
     padding-bottom: 94px;
 }
 
-.tumb {
+.feature__tumb {
     height: 120px;
     padding: 100px, 25px;
     margin-bottom: 30px;
@@ -422,28 +414,31 @@ address {
     align-items: center;
 }
 
-.feature-icon {
+.feature__icon {
     display: block;
     width: 70px;
     height: 70px;
 }
 
-.feature-title {
+.feature__title {
     font-size: 14px;
     line-height: 1.14;
+    font-weight: 700;
     text-transform: uppercase;
+    margin: 0;
     margin-bottom: 10px;
+    color: var(--titlt-color);
 }
 
-.features-list {
+.features__list {
     display: flex;
 }
 
-.feature:not(:last-child) {
+.feature__item:not(:last-child) {
     margin-right: 30px;
 }
 
-.feature-text {
+.feature__text {
     font-size: 14px;
     line-height: 1.7;
     width: 270px;
@@ -454,20 +449,20 @@ address {
     padding-bottom: 94px;
 }
 
-.services-list {
+.services__list {
     display: flex;
 }
 
-.service-item {
+.service__item {
     position: relative;
     z-index: -1;
 }
 
-.service-item:not(:last-child) {
+.service__item:not(:last-child) {
     margin-right: 30px;
 }
 
-.service-title {
+.service__title {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -493,12 +488,12 @@ address {
     background-color: var(--bg-color);
 }
 
-.employees-list {
+.employees__list {
     display: flex;
     text-align: center;
 }
 
-.employee-item {
+.employee__item {
     width: 270px;
     background-color: var(--white-color);
     border-bottom-left-radius: 4px;
@@ -506,11 +501,11 @@ address {
     box-shadow: var(--team-shadow);
 }
 
-.employee-item:not(:last-child) {
+.employee__item:not(:last-child) {
     margin-right: 30px;
 }
 
-.employee-name {
+.employee__name {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.2;
@@ -519,17 +514,17 @@ address {
     margin-bottom: 10px;
 }
 
-.employee-vacancy {
+.employee__vacancy {
     font-size: 16px;
     line-height: 1.2;
     margin-bottom: 16px;
 }
 
-.card-name {
+.employee__card {
     padding: 30px 0;
 }
 
-.card-name > .socials-list{
+.employee__list {
     justify-content: center;
 }
 
@@ -541,19 +536,18 @@ address {
     background-color: var(--main-bg-color);
 }
 
-.clients-list {
+.clients__list {
     display: flex;
 }
 
-.client-item {
+.client__item {
     margin-right: 30px;
 }
 
-.client-item:last-child {
+.client__item:last-child {
     margin-right: 0;
 }
-
-.client-link {
+.client__link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -568,8 +562,8 @@ address {
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.client-link:hover,
-.client-link:focus {
+.client__link:hover,
+.client__link:focus {
     fill: var(--accent-color);
     border: 1px solid var(--accent-color);  
 }
@@ -578,7 +572,7 @@ address {
 *************** Portfolio ******************** 
 ********************************************************************** */
 
-.portfolio-section {
+.portfolio {
     padding: 94px 0;
 }
 
@@ -588,7 +582,7 @@ address {
     margin-bottom: 50px;
 }
 
-.filter-btn {
+.filter__btn {
     padding: 6px 22px;
     cursor: pointer;
     font-family: inherit;
@@ -606,12 +600,12 @@ address {
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.filter-item:not(:last-child) {
+.filter__item:not(:last-child) {
     margin-right: 8px;
 }
 
-.filter-btn:hover,
-.filter-btn:focus {
+.filter__btn:hover,
+.filter__btn:focus {
     color: var(--white-color);
     background-color: var(--accent-color);
     box-shadow: var(--filter-shadow);
@@ -623,29 +617,29 @@ address {
     padding: 0;
 }
 
-.work-item {
+.work__item {
     width: 370px;
 }
 
-.work-link:hover,
-.work-link:focus {
-    box-shadow: var(--portfolio-card-shadow);
-}
-
-.work-item:not(:nth-child(3n)) {
+.work__item:not(:nth-child(3n)) {
     margin-right: 30px;
 }
 
-.work-item:not(:nth-last-child(-n+3)) {
+.work__item:not(:nth-last-child(-n+3)) {
     margin-bottom: 30px;
 }
 
-.work-link {
+.work__link {
     display: block;
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.work-title {
+.work__link:hover,
+.work__link:focus {
+    box-shadow: var(--portfolio-card-shadow);
+}
+
+.work__title {
     font-weight: 700;
     font-size: 18px;
     line-height: 2;
@@ -655,13 +649,13 @@ address {
     margin-bottom: 4px;
 }
 
-.work-view {
+.work__view {
     font-size: 16px;
     line-height: 1.9;
     color: var(--text-color)
 }
 
-.card-sub {
+.work__label {
     padding: 20px 24px;
     border: 1px solid var(--border-color);
     border-top: none;
@@ -669,21 +663,21 @@ address {
 
 /* ******************** CVG ******************** */
 
-.socials-list {
+.socials__list {
     display: flex;
 }
 
-.social-item {
+.social__item {
     margin-right: 10px;
     width: 44px;
     height: 44px;
 }
 
-.social-item:last-child {
+.social__item:last-child {
     margin-right: 0px;
 }
 
-.social-link {
+.social__link {
     display: flex;
     justify-content: center;
     align-items: center;  
@@ -695,23 +689,22 @@ address {
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-icon{
+.social__icon{
     fill: var(--icon-color);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-link:hover,
-.social-link:focus {
+.social__link:hover,
+.social__link:focus {
     background-color: var(--accent-color);
+}
+
+.social__link:hover .social__icon,
+.social__link:focus .social__icon {
     fill: var(--main-bg-color);
 }
 
-.social-link:hover .social-icon,
-.social-link:focus .social-icon {
-    fill: var(--main-bg-color);
-}
-
-.footer .social-icon {
+.footer__icon {
     fill: var(--main-bg-color);
 }
 
@@ -781,21 +774,21 @@ address {
 outline-color: var(--accent-color);
 }
 
-.btn-close:hover .modal-close,
-.btn-close:focus .modal-close {
+.btn-close:hover .close-icon,
+.btn-close:focus .close-icon {
     fill: var(--accent-color);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-close {
+.close-icon {
     fill: var(--logo-dark-color);
 }
 
-.modal-form {
+.modal__form {
     text-align: left;
 }
 
-.form-title {
+.modal__title {
     display: block;
     margin-bottom: 12px;
     font-weight: 700;
@@ -805,17 +798,16 @@ outline-color: var(--accent-color);
     color: var(--titlt-color);
 }
 
-.form-group {
+.form__group {
     position: relative;
     margin-bottom: 10px;
 }
 
-.form-group,
-.consent {
+.form__group {
     display: block; 
 }
 
-.modal-icon {
+.form__icon {
     display: inline-block;
     position: absolute;
     top: 50%;
@@ -825,7 +817,7 @@ outline-color: var(--accent-color);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.field {
+.form__field {
     display: inline-block;
     width: 100%;
     height: 40px;
@@ -843,7 +835,7 @@ outline-color: var(--accent-color);
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.textarea {
+.form__textarea {
     resize: none;
     height: 120px;
     padding-left: 16px;
@@ -856,43 +848,26 @@ outline-color: var(--accent-color);
     color: var(--titlt-color);
 }
 
-.textarea::placeholder {
+.form__textarea::placeholder {
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.01em;
     color: var(--placeholder-color);
 }
 
-/* 
-.field:hover,
-.field:focus {
-border: 1px solid var(--accent-color);
-outline-color: var(--accent-color);
-}
-
-.field:hover + .modal-icon,
-.field:focus + .modal-icon {
+.form__group:hover .form__icon,
+.form__group:focus-within .form__icon {
     fill: var(--accent-color);
 }
 
-.modal-icon:hover,
-.modal-icon:focus {
-    fill: var(--accent-color);
-} */
-
-.form-group:hover .modal-icon,
-.form-group:focus-within .modal-icon {
-    fill: var(--accent-color);
-}
-
-.form-group:hover .field,
-.form-group:focus-within .field {
+.form__group:hover .form__field,
+.form__group:focus-within .form__field {
     border-color: var(--accent-color);
     outline-color: var(--accent-color);
 }
 
-.input-title,
-.consent {
+.form__title,
+.checkbox {
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.01em;
@@ -900,7 +875,7 @@ outline-color: var(--accent-color);
     margin-bottom: 4px;
 }
 
-.consent {
+.checkbox {
     position: relative;
     display: flex;
     justify-content: center;
@@ -909,7 +884,7 @@ outline-color: var(--accent-color);
     cursor: pointer;
 }
 
-.consent-text {
+.checkbox__text {
     text-align: center;
     padding-left: 20px;
     font-size: 14px;
@@ -917,12 +892,12 @@ outline-color: var(--accent-color);
     letter-spacing: 0.03em;
 }
 
-.consent .list {
+.checkbox__policy {
     text-decoration-line: underline;
     color: var(--accent-color);
 }
 
-.checkbox {
+.checkbox__field {
     position: absolute;
     top: 50%;
     left: 20px; 
@@ -938,7 +913,7 @@ outline-color: var(--accent-color);
     overflow: hidden;  
 } 
 
-.icon-checkbox {
+.checkbox__icon {
     position: absolute;
     top: 50%;
     left: 13px;
@@ -956,18 +931,18 @@ outline-color: var(--accent-color);
     outline-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.checkbox:checked + .icon-checkbox {
+.checkbox__field:checked + .checkbox__icon {
    background-color: var(--accent-color);
    outline-color: transparent;
    fill: var(--white-color);
 }
 
-.checkbox:hover +.icon-checkbox,
-.checkbox:focus +.icon-checkbox {
+.checkbox__field:hover +.checkbox__icon,
+.checkbox__field:focus +.checkbox__icon {
     outline-color: var(--accent-color);
 }
 
-.modal-form > .btn {
+.form__btn {
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -975,12 +950,12 @@ outline-color: var(--accent-color);
 
 /*  */
 
-.card {
+.work__card {
     position: relative;
     overflow: hidden;
 }
 
-.overlay {
+.work__overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -996,13 +971,13 @@ outline-color: var(--accent-color);
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.work-link:hover .overlay,
-.work-link:focus .overlay {
+.work__link:hover .work__overlay,
+.work__link:focus .work__overlay {
     opacity: 1;
     transform: translateY(0);
 }
 
-.overlay-text {
+.work__text {
     font-weight: 400;
     font-size: 18px;
     line-height: 1.55;
