@@ -13,7 +13,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: var(--bg-hero-color);
+    background-color: $bg-hero-color;
     padding-top: 200px;
     padding-bottom: 200px;
     text-align: center;
@@ -25,7 +25,7 @@
     line-height: 1.4;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--white-color);
+    color: $white-color;
     margin-top: 0;
     margin-bottom: 30px;
 }
@@ -37,27 +37,32 @@
     font-size: 16px;
     line-height: 1.87;
     letter-spacing: 0.06em;
-    color: var(--white-color);
-    background-color: var(--accent-color);
+    color: $white-color;
+    background-color: $accent-color;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     padding: 10px 32px;
     min-width: 200px;
     border-radius: 4px;
     border: none;
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color $time $cubic;
+
+    &:hover,
+    &:focus {
+        background-color: $second-accent-color;
+    }
 }
 
-.btn:hover,
-.btn:focus {
-    background-color: var(--second-accent-color);
-}
+// .btn:hover,
+// .btn:focus {
+//     background-color: $second-accent-color;
+// }
 
 .title {
     font-weight: 700;
     font-size: 36px;
     line-height: 1.2;
-    color: var(--titlt-color);
+    color: $titlt-color;
     margin: 0;
     margin-bottom: 50px;
     text-align: center;
@@ -72,7 +77,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--backdrop-bg-color);
+    background-color: $backdrop-bg-color;
 
     transition: visibility 300ms cubic-bezier(0.4, 0, 0.2, 1),
         opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -85,8 +90,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 4px;
-    background-color: var(--main-bg-color);
-    box-shadow: var(--team-shadow);
+    background-color: $main-bg-color;
+    box-shadow: $team-shadow;
     width: 528px;
     padding: 40px;
 
@@ -119,59 +124,83 @@
     padding: 0;
     width: 30px;
     height: 30px;
-    background-color: var(--main-bg-color);
+    background-color: $main-bg-color;
     border-radius: 50%;
-    border: 1px solid var(--border-close-color);
+    border: 1px solid $border-close-color;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+        outline-color: $accent-color;
+    }
+
+
 }
 
-.btn-close:hover,
-.btn-close:focus {
-    outline-color: var(--accent-color);
-}
-
-.btn-close:hover .close-icon,
-.btn-close:focus .close-icon {
-    fill: var(--accent-color);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+// .btn-close:hover,
+// .btn-close:focus {
+//     outline-color: $accent-color;
+// }
 
 .close-icon {
-    fill: var(--logo-dark-color);
+    fill: $logo-dark-color;
+
+    .btn-close:hover &,
+    .btn-close:focus & {
+        fill: $accent-color;
+        transition: fill $time $cubic;
+    }
 }
 
-.modal__form {
+// .btn-close:hover .close-icon,
+// .btn-close:focus .close-icon {
+//     fill: $accent-color;
+//     transition: fill $time $cubic;
+// }
+
+.form {
     text-align: left;
 }
 
-.modal__title {
+.modal-title {
     display: block;
     margin-bottom: 12px;
     font-weight: 700;
     font-size: 20px;
     line-height: 1.15;
     text-align: center;
-    color: var(--titlt-color);
+    color: $titlt-color;
 }
 
 .form__group {
     position: relative;
     margin-bottom: 10px;
-}
-
-.form__group {
     display: block;
 }
+
+// .form__group {
+//     display: block;
+// }
 
 .form__icon {
     display: inline-block;
     position: absolute;
     top: 50%;
     left: 12px;
-    fill: var(--titlt-color);
+    fill: $titlt-color;
     cursor: pointer;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill $time $cubic;
+
+    .form__group:hover &,
+    .form__group:focus-within & {
+        fill: $accent-color;
+    }
 }
+
+// .form__group:hover .form__icon,
+// .form__group:focus-within .form__icon {
+//     fill: $accent-color;
+// }
 
 .form__field {
     display: inline-block;
@@ -181,15 +210,27 @@
     padding-left: 42px;
     border-radius: 4px;
 
-    border: 1px solid var(--border-modal-color);
+    border: 1px solid $border-modal-color;
 
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.01em;
-    color: var(--titlt-color);
+    color: $titlt-color;
     cursor: pointer;
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color $time $cubic;
+
+    .form__group:hover &,
+    .form__group:focus-within & {
+        border-color: $accent-color;
+        outline-color: $accent-color;
+    }
 }
+
+// .form__group:hover .form__field,
+// .form__group:focus-within .form__field {
+//     border-color: $accent-color;
+//     outline-color: $accent-color;
+// }
 
 .form__textarea {
     resize: none;
@@ -197,37 +238,25 @@
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 20px;
-    color: var(--titlt-color);
+    color: $titlt-color;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.01em;
-    color: var(--titlt-color);
+    color: $titlt-color;
 }
 
 .form__textarea::placeholder {
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.01em;
-    color: var(--placeholder-color);
+    color: $placeholder-color;
 }
 
-.form__group:hover .form__icon,
-.form__group:focus-within .form__icon {
-    fill: var(--accent-color);
-}
-
-.form__group:hover .form__field,
-.form__group:focus-within .form__field {
-    border-color: var(--accent-color);
-    outline-color: var(--accent-color);
-}
-
-.form__title,
-.checkbox {
+.form__title {
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.01em;
-    color: var(--text-color);
+    color: $text-color;
     margin-bottom: 4px;
 }
 
@@ -250,7 +279,7 @@
 
 .checkbox__policy {
     text-decoration-line: underline;
-    color: var(--accent-color);
+    color: $accent-color;
 }
 
 .checkbox__field {
@@ -279,23 +308,23 @@
     cursor: pointer;
     width: 16px;
     height: 15px;
-    outline: 1px solid var(--titlt-color);
+    outline: 1px solid $titlt-color;
     outline-offset: -1px;
     fill: transparent;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        outline-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color $time $cubic,
+        fill $time $cubic,
+        outline-color $time $cubic;
 }
 
 .checkbox__field:checked+.checkbox__icon {
-    background-color: var(--accent-color);
+    background-color: $accent-color;
     outline-color: transparent;
-    fill: var(--white-color);
+    fill: $white-color;
 }
 
 .checkbox__field:hover+.checkbox__icon,
 .checkbox__field:focus+.checkbox__icon {
-    outline-color: var(--accent-color);
+    outline-color: $accent-color;
 }
 
 .form__btn {

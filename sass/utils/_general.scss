@@ -10,11 +10,11 @@ html {
 }
 
 body {
-    font-family: var(--main-font);
+    font-family: $main-font;
     font-weight: 400;
     letter-spacing: 0.03em;
-    color: var(--text-color);
-    background-color: var(--main-bg-color);
+    color: $text-color;
+    background-color: $main-bg-color;
 }
 
 .container {
