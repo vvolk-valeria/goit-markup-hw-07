@@ -20,16 +20,12 @@
     line-height: 1.2;
     letter-spacing: 0.03em;
     color: $accent-color;
-
-    .page-header__& {
-            margin-right: 93px;
-            padding: 24px 0;
-        }
 }
-// .page-header__logo {
-//     margin-right: 93px;
-//     padding: 24px 0;
-// }
+
+.page-header__logo {
+    margin-right: 93px;
+    padding: 24px 0;
+}
 
 .logo--dark {
     color: $logo-dark-color;
@@ -39,8 +35,6 @@
     display: flex;
     align-items: center;
 }
-
-
 
 .nav {
     display: flex;

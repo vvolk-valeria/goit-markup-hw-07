@@ -102,7 +102,7 @@ address {
     &:hover,
     &:focus {
         border-color: $accent-color;
-        outline-style: $accent-color;
+        outline-color: $accent-color;
     }
 }
 // .subscription__email:hover,

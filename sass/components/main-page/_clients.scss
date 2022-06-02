@@ -40,6 +40,7 @@
         &:focus {
             fill: $accent-color;
             border: 1px solid $accent-color;
+            outline-color: transparent;
         }
 }
 
